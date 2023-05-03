@@ -1,7 +1,7 @@
 # Full_Stack_App
  FSJS project 10 full stack app with react and express
 
- The full stack application is providing a way for users to administer a school database containing information about courses: users can interact with the database by retrieving a list of courses, viewing detail for a specific course, as well as creating, updating, and deleting courses in the database.
+ This full stack application is providing a way for users to administer a school database containing information about courses: users can interact with the database by retrieving a list of courses, viewing detail for a specific course, as well as creating, updating, and deleting courses in the database.
 
  The project is made as 3 steps process. Firstly, the API was created and tested. Secondly, client side was developed and implemented. Thirdly, client and server
  were combined to work together in unison as single full-stack app. 
