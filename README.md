@@ -7,5 +7,5 @@
  were combined to work together in unison as single full-stack app. 
 
 Technologies used to create the project:
-    Client - React, JSX, React Router, React Context API, React Authentication.
+    Client - React Components, React Router, React Context, React Authentication.
     Server - REST API, Node.js, Express, Sequelize ORM, sqlite3 database.
