@@ -2,11 +2,13 @@ import React from "react";
 
 import Course from "./Course";
 
-const Courses = () => {
+const Courses = (props) => {
+    const results = props.data;
+    let courses = results.map(course => <Course title={course.title} key={course.id}/>)
     return (
         <main>
             <div className="wrap main--grid">
-                <Course />
+                {courses}
                 <a className="course--module course--add--module" href="create-course.html">
                     <span className="course--add--title">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"

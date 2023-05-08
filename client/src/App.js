@@ -11,7 +11,7 @@ function App() {
     axios.get('http://localhost:5000/api/courses')
       .then(response => {
         // handle success
-        console.log(response.data);
+        setCourses(response.data);
       })
       .catch( error => {
         // handle error
@@ -21,7 +21,7 @@ function App() {
   return (
     <div id="root">
         <Header />
-        <Courses />
+        <Courses data={courses}/>
     </div>
   );
 }
