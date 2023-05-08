@@ -8,7 +8,8 @@ const Courses = (props) => {
     return (
         <main>
             <div className="wrap main--grid">
-                {courses}
+                {/* Add individual courses as grid elements  */}
+                {courses} 
                 <a className="course--module course--add--module" href="create-course.html">
                     <span className="course--add--title">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
