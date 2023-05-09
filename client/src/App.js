@@ -15,6 +15,7 @@ import UserSignUp from './components/UserSignUp';
 
 function App() {
   const [courses, setCourses] = useState( [] );
+  
   useEffect(() => {
     axios.get('http://localhost:5000/api/courses')
       .then(response => {
@@ -26,6 +27,7 @@ function App() {
         console.log("Error fetching and parsing data", error);
       })
   }, [ ]);
+
   return (
     <div id="root">
         <Header />
