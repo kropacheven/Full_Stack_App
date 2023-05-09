@@ -1,6 +1,9 @@
+// App tools:
 import React, { useEffect, useState }  from 'react';
 import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
 
+//App components:
 import Header from './components/Header';
 import Courses from './components/Courses';
 
@@ -21,7 +24,9 @@ function App() {
   return (
     <div id="root">
         <Header />
-        <Courses data={courses}/>
+        <Routes>
+          <Route path="/" element={<Courses data={courses}/>} />
+        </Routes>
     </div>
   );
 }
