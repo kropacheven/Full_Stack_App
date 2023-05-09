@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Courses from './components/Courses';
 import CourseDetail from './components/CourseDetail';
 import CourseCreate from './components/CourseCreate';
+import CourseUpdate from './components/CourseUpdate';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Courses data={courses}/>} />
           <Route path="courses/course" element={<CourseDetail />} />
+          <Route path="courses/course/update" element={<CourseUpdate />} />
           <Route path="courses/create" element={<CourseCreate />} />
         </Routes>
     </div>
