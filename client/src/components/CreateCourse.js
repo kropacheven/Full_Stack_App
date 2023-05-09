@@ -1,6 +1,6 @@
 import React from "react";
 
-const CourseCreate = () => {
+const CreateCourse = () => {
     return (
         <main>
         <div class="wrap">
@@ -39,4 +39,4 @@ const CourseCreate = () => {
 }
 
 
-export default CourseCreate;
+export default CreateCourse;

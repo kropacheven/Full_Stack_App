@@ -1,6 +1,6 @@
 import React from "react";
 
-const CourseUpdate = () => {
+const UpdateCourse = () => {
     return (
         <main>
         <div class="wrap">
@@ -31,4 +31,4 @@ const CourseUpdate = () => {
     );
 }
 
-export default CourseUpdate;
+export default UpdateCourse;
