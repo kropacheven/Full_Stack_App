@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Courses from './components/Courses';
 import CourseDetail from './components/CourseDetail';
+import CourseCreate from './components/CourseCreate';
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Courses data={courses}/>} />
-          <Route path="/course" element={<CourseDetail />} />
+          <Route path="courses/course" element={<CourseDetail />} />
+          <Route path="courses/create" element={<CourseCreate />} />
         </Routes>
     </div>
   );
