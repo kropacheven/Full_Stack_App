@@ -9,6 +9,7 @@ import Courses from './components/Courses';
 import CourseDetail from './components/CourseDetail';
 import CourseCreate from './components/CourseCreate';
 import CourseUpdate from './components/CourseUpdate';
+import UserSignIn from './components/UserSignIn';
 
 
 function App() {
@@ -29,9 +30,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Courses data={courses}/>} />
-          <Route path="courses/course" element={<CourseDetail />} />
-          <Route path="courses/course/update" element={<CourseUpdate />} />
+          <Route path="courses/course" element={<CourseDetail />} /> 
+          <Route path="courses/course/update" element={<CourseUpdate />} /> 
           <Route path="courses/create" element={<CourseCreate />} />
+          <Route path="signin" element={<UserSignIn />} />
         </Routes>
     </div>
   );
