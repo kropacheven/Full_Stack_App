@@ -1,13 +1,14 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const CourseDetail = (props) => {
     return (
         <main>
             <div className="actions--bar">
                 <div className="wrap">
-                    <a className="button" href="update-course.html">Update Course</a>
-                    <a className="button" href="#">Delete Course</a>
-                    <a className="button button-secondary" href="index.html">Return to List</a>
+                    <NavLink className="button" to="update">Update Course</NavLink>
+                    <NavLink className="button" to="/">Delete Course</NavLink>
+                    <NavLink className="button button-secondary" to="/">Return to List</NavLink>
                 </div>
             </div>
 
