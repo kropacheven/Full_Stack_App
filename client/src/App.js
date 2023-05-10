@@ -12,6 +12,7 @@ import UpdateCourse from './components/UpdateCourse';
 import UserSignIn from './components/UserSignIn';
 import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
+import NotFound from './components/NotFound';
 
 
 function App() {
@@ -38,10 +39,13 @@ function App() {
           
           <Route path="courses/course" element={<CourseDetail />} /> 
           <Route path="courses/course/update" element={<UpdateCourse />} /> 
-          
+
           <Route path="signin" element={<UserSignIn />} />
           <Route path="signup" element={<UserSignUp />} />
           <Route path="signout" element={<UserSignOut />} />
+
+          <Route path="*" element={<NotFound />}/>
+
         </Routes>
     </div>
   );
