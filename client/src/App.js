@@ -35,8 +35,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Courses data={courses}/>} />
           <Route path="courses/course" element={<CourseDetail />} /> 
-          <Route path="courses/course/update" element={<UpdateCourse />} /> 
           <Route path="courses/create" element={<CreateCourse />} />
+          <Route path="courses/course/update" element={<UpdateCourse />} /> 
           <Route path="signin" element={<UserSignIn />} />
           <Route path="signup" element={<UserSignUp />} />
           <Route path="signout" element={<UserSignOut />} />
