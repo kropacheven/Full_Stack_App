@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const UserSignUp = () => {
     return (
@@ -17,7 +18,7 @@ const UserSignUp = () => {
                 <input id="password" name="password" type="password" value=""></input>
                 <button class="button" type="submit">Sign Up</button><button class="button button-secondary" onclick="event.preventDefault(); location.href='index.html';">Cancel</button>
             </form>
-            <p>Already have a user account? Click here to <a href="sign-in.html">sign in</a>!</p>
+            <p>Already have a user account? Click here to <NavLink to="/signin">sign in</NavLink>!</p>
         </div>
     </main>
     );
