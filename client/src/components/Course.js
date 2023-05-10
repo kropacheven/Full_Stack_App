@@ -1,11 +1,12 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Course = (props) => {
     return (
-        <a className="course--module course--link" href="course-detail.html">
+        <NavLink className="course--module course--link" to="courses/course">
             <h2 className="course--label">Course</h2>
             <h3 className="course--title"> {props.title} </h3>
-        </a>
+        </NavLink>
     );
 }
 
