@@ -39,7 +39,7 @@ function App() {
           <Route path="courses/create" element={<CreateCourse />} />
           
           <Route path="courses/:id" element={<CourseDetail data={courses}/>} /> 
-          <Route path="courses/course/update" element={<UpdateCourse />} /> 
+          <Route path="courses/:id/update" element={<UpdateCourse data={courses}/>} /> 
 
           <Route path="signin" element={<UserSignIn />} />
           <Route path="signup" element={<UserSignUp />} />
