@@ -5,7 +5,7 @@ import Course from "./Course";
 
 const Courses = (props) => {
     const results = props.data;
-    let courses = results.map(course => <Course title={course.title} key={course.id}/>)
+    let courses = results.map(course => <Course title={course.title} key={course.id} id={course.id}/>)
     return (
         <main>
             <div className="wrap main--grid">
