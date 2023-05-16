@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CreateCourse = () => {
+    let navigate = useNavigate();
+
+    const handleCancel = (e) => {
+        e.preventDefault();
+        navigate(-1);
+    };
+
     return (
         <main>
         <div class="wrap">
@@ -31,7 +39,7 @@ const CreateCourse = () => {
                         <textarea id="materialsNeeded" name="materialsNeeded"></textarea>
                     </div>
                 </div>
-                <button class="button" type="submit">Create Course</button><button class="button button-secondary" onclick="event.preventDefault(); location.href='index.html';">Cancel</button>
+                <button class="button" type="submit">Create Course</button><button class="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     </main>

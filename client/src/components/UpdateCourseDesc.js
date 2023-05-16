@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const UpdateCourseDesc = (props) => {
+    let navigate = useNavigate();
+
+    const handleCancel = (e) => {
+        e.preventDefault();
+        navigate(-1);
+    };
+
     return (
         <div class="wrap">
             <h2>Update Course</h2>
@@ -23,7 +31,7 @@ const UpdateCourseDesc = (props) => {
                         <textarea id="materialsNeeded" name="materialsNeeded">{props.material}</textarea>
                     </div>
                 </div>
-                <button class="button" type="submit">Update Course</button><button class="button button-secondary" onclick="event.preventDefault(); location.href='index.html';">Cancel</button>
+                <button class="button" type="submit">Update Course</button><button class="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     );
