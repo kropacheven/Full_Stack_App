@@ -3,6 +3,7 @@ import React, { useEffect, useState }  from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 
+
 //App components:
 import Header from './components/Header';
 import Courses from './components/Courses';
@@ -17,7 +18,7 @@ import NotFound from './components/NotFound';
 
 function App() {
   const [courses, setCourses] = useState( [] );
-
+  console.log(courses);
   useEffect(() => {
     axios.get('http://localhost:5000/api/courses')
       .then(response => {
@@ -37,7 +38,7 @@ function App() {
           <Route path="/" element={<Courses data={courses}/>} />
           <Route path="courses/create" element={<CreateCourse />} />
           
-          <Route path="courses/course" element={<CourseDetail />} /> 
+          <Route path="courses/:id" element={<CourseDetail data={courses}/>} /> 
           <Route path="courses/course/update" element={<UpdateCourse />} /> 
 
           <Route path="signin" element={<UserSignIn />} />
