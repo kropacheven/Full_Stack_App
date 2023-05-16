@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 const UpdateCourseDesc = (props) => {
     let navigate = useNavigate();
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate(-1);
+    };
+
     const handleCancel = (e) => {
         e.preventDefault();
         navigate(-1);
@@ -31,7 +36,7 @@ const UpdateCourseDesc = (props) => {
                         <textarea id="materialsNeeded" name="materialsNeeded">{props.material}</textarea>
                     </div>
                 </div>
-                <button class="button" type="submit">Update Course</button><button class="button button-secondary" onClick={handleCancel}>Cancel</button>
+                <button class="button" type="submit" onClick={handleSubmit}>Update Course</button><button class="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     );
