@@ -11,10 +11,6 @@ const UpdateCourseDesc = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //let courseTitle = title.current.value;
-        //let courseDesc = desc.current.value;
-        //let courseTime = time.current.value;
-        //let courseMaterial = material.current.value;
         navigate(-1);
     };
 
