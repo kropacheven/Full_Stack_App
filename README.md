@@ -1,5 +1,5 @@
 # Full_Stack_App
- FSJS project 10 - full stack app build with React(client) and Express(server).
+ FSJS project 10 is full stack app build with React(client) and Express(server).
 
  This full stack application is providing a way for users to administer a school database containing information about courses: users can interact with the database by retrieving a list of courses, viewing detail for a specific course, as well as creating, updating, and deleting courses in the database.
 
