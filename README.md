@@ -7,7 +7,7 @@
  were combined to work together in unison as single full-stack app. 
 
 Technologies used to create the project:
-    Client - React Components, React Router, React Context, React Authentication.
+    Client - React Components, React Router, React Context API, React Authentication.
     Server - REST API, Node.js, Express, Sequelize ORM, sqlite3 database.
 
 Client is set in cliet folder of the project and runs at localhost:3000.
