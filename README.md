@@ -15,5 +15,5 @@ Server is set in api folder of the project and runs at localhost:5000.
 
 CORS package is installed on the server side to allow CORS communication.
 
-For launching the app run npm start in api folder, 
-then npm start in client folder.
+For launching the app run npm start in the api folder, 
+then npm start in the client folder.
