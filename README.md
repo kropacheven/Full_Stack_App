@@ -10,8 +10,8 @@ Technologies used to create the project:
     Client - React Components, React Router, React Context API, React Authentication.
     Server - REST API, Node.js, Express, Sequelize ORM, sqlite3 database.
 
-Client is set in cliet folder of the project and runs at localhost:3000.
-Server is set in api folder of the project and runs at localhost:5000.
+Client is set in cliet folder of the project and runs at localhost:3000,
+server is set in api folder of the project and runs at localhost:5000.
 
 CORS package is installed on the server side to allow CORS communication with client.
 
