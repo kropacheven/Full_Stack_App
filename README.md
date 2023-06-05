@@ -6,7 +6,7 @@
  The project is made up as 3 steps process. Firstly, the API was created and tested. Secondly, client side was developed and implemented. Thirdly, client and server
  were combined to work together in unison as single full-stack app. 
 
-Technologies used to create the project:
+Technologies used to create this project:
     Client - React Components, React Router, React Context API, React authentication/authorization.
     Server - REST API, Node.js, Express, Sequelize ORM, sqlite3 as database.
 
