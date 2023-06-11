@@ -12,6 +12,7 @@ Technologies used to create this project:
 
 Client is set in cliet folder of the project and runs at localhost:3000,
 server is set in api folder of the project and runs at localhost:5000.
+
 CORS package is installed on the server side to allow CORS communication with client.
 
 For launching the app run npm start in the api folder, 
