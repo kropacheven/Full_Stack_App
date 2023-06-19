@@ -65,40 +65,40 @@ const UserSignUp = () => {
 
     return (
         <main>
-            <div class="form--centered">
+            <div className="form--centered">
                 <h2>Sign Up</h2>
 
                 <form onSubmit={handleSubmit}>
-                    <label for="firstName">First Name</label>
+                    <label htmlFor="firstName">First Name</label>
                     <input
                         id="firstName"
                         name="firstName"
                         type="text"
                         ref={firstname}>
                     </input>
-                    <label for="lastName">Last Name</label>
+                    <label htmlFor="lastName">Last Name</label>
                     <input
                         id="lastName"
                         name="lastName"
                         type="text"
                         ref={lastname}>
                     </input>
-                    <label for="emailAddress">Email Address</label>
+                    <label htmlFor="emailAddress">Email Address</label>
                     <input
                         id="emailAddress"
                         name="emailAddress"
                         type="email"
                         ref={email}>
                     </input>
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input
                         id="password"
                         name="password"
                         type="password"
                         ref={password}>
                     </input>
-                    <button class="button" type="submit" onClick={handleSubmit}>Sign Up</button>
-                    <button class="button button-secondary" onClick={handleCancel}>Cancel</button>
+                    <button className="button" type="submit" onClick={handleSubmit}>Sign Up</button>
+                    <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
                 </form>
                 <p>Already have a user account? Click here to <NavLink to="/signin">sign in</NavLink>!</p>
             </div>

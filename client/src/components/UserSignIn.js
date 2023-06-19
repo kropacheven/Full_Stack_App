@@ -17,15 +17,15 @@ const UserSignIn = () => {
 
     return (
         <main>
-        <div class="form--centered">
+        <div className="form--centered">
             <h2>Sign In</h2>
             
             <form>
-                <label for="emailAddress">Email Address</label>
+                <label htmlFor="emailAddress">Email Address</label>
                 <input id="emailAddress" name="emailAddress" type="email" value=""></input>
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input id="password" name="password" type="password" value=""></input>
-                <button class="button" type="submit" onClick={handleSubmit}>Sign In</button><button class="button button-secondary" onClick={handleCancel}>Cancel</button>
+                <button className="button" type="submit" onClick={handleSubmit}>Sign In</button><button className="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
             <p>Don't have a user account? Click here to <NavLink to="/signup">sign up</NavLink>!</p>
             
