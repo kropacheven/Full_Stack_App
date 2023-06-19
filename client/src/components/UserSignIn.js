@@ -25,7 +25,7 @@ const UserSignIn = () => {
                 <input id="emailAddress" name="emailAddress" type="email" value=""></input>
                 <label for="password">Password</label>
                 <input id="password" name="password" type="password" value=""></input>
-                <button class="button" type="submit" onClick={handleCancel}>Sign In</button><button class="button button-secondary" onClick={handleCancel}>Cancel</button>
+                <button class="button" type="submit" onClick={handleSubmit}>Sign In</button><button class="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
             <p>Don't have a user account? Click here to <NavLink to="/signup">sign up</NavLink>!</p>
             
