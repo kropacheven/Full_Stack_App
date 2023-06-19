@@ -35,11 +35,13 @@ const UserSignUp = () => {
             body: JSON.stringify(user)
         }
 
+        console.log(user);
+
         try {
             const response = await fetch("http://localhost:5000/api/users", fetchOptions);
             //console.log(response);
             if (response.status === 201) {
-              console.log(`${user.username} is succesfully signed up and authenticated!`)
+              console.log(`${user.firstname} is succesfully signed up and authenticated!`)
               //await actions.signIn(user);  ---- bug - must be SignUp - ? or may be not
               //navigate("/authenticated");
             } else if (response.status === 400) {
