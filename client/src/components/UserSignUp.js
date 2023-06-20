@@ -35,7 +35,7 @@ const UserSignUp = () => {
             body: JSON.stringify(user)
         }
 
-        console.log(user);
+        //console.log(user);
 
         try {
             const response = await fetch("http://localhost:5000/api/users", fetchOptions);
