@@ -12,7 +12,7 @@ const UserSignUp = () => {
     const lastname = useRef(null);
     const email = useRef(null);
     const password = useRef(null);
-    const [errors, setErrors] = useState([]);
+    //const [errors, setErrors] = useState([]);
 
     //Event handlers:
     const handleSubmit = async (event) => {
@@ -35,27 +35,8 @@ const UserSignUp = () => {
             body: JSON.stringify(user)
         }
 
-        //console.log(user);
-
-        try {
-            const response = await fetch("http://localhost:5000/api/users", fetchOptions);
-            //console.log(response);
-            if (response.status === 201) {
-              console.log(`${user.firstname} is succesfully signed up and authenticated!`)
-              //await actions.signIn(user);  ---- bug - must be SignUp - ? or may be not
-              //navigate("/authenticated");
-            } else if (response.status === 400) {
-              const data = await response.json();
-              //console.log(data);
-              setErrors(data.errors);
-            } else {
-              throw new Error();
-            }
-          } catch (error) {
-            //console.log(error);
-            navigate('/error');
-          }
-
+        const response = await fetch("http://localhost:5000/api/users", fetchOptions);
+        console.log(response);
 
     };
 
