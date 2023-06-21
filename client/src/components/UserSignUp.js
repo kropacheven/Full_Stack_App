@@ -20,23 +20,24 @@ const UserSignUp = () => {
 
         // Build up user object from Refs above
         const user = {
-            firstname: firstname.current.value,
-            lastname: lastname.current.value,
-            email: email.current.value,
+            firstName: firstname.current.value,
+            lastName: lastname.current.value,
+            emailAddress: email.current.value,
             password: password.current.value
         }
 
         // Configure fetch options:
         const fetchOptions = {
             method: "POST",
-            //headers: {
-            //    "Content-Type": "application/json; charset=utf-8"
-            //},
-            //body: JSON.stringify(user)
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            body: JSON.stringify(user)
         }
 
         const response = await fetch("http://localhost:5000/api/users", fetchOptions);
-        console.log(response);
+        //console.log(fetchOptions);
+        //console.log(response);
 
     };
 
