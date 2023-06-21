@@ -14,11 +14,11 @@ const UserSignUp = () => {
     const password = useRef(null);
     //const [errors, setErrors] = useState([]);
 
-    //Event handlers:
+    //Submit event handler function:
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Build up user object from Refs
+        // Build up user object from Refs above
         const user = {
             firstname: firstname.current.value,
             lastname: lastname.current.value,
@@ -29,10 +29,10 @@ const UserSignUp = () => {
         // Configure fetch options:
         const fetchOptions = {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            body: JSON.stringify(user)
+            //headers: {
+            //    "Content-Type": "application/json; charset=utf-8"
+            //},
+            //body: JSON.stringify(user)
         }
 
         const response = await fetch("http://localhost:5000/api/users", fetchOptions);
@@ -40,12 +40,13 @@ const UserSignUp = () => {
 
     };
 
+    //Cancel event handler function:
     const handleCancel = (e) => {
         e.preventDefault();
         navigate("/");
     };
 
-
+    //JSX
     return (
         <main>
             <div className="form--centered">

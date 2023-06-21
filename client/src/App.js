@@ -19,7 +19,7 @@ import NotFound from './components/NotFound';
 
 function App() {
   const [courses, setCourses] = useState( [] );
-  console.log(courses);
+  //console.log(courses);
   useEffect(() => {
     axios.get('http://localhost:5000/api/courses')
       .then(response => {
