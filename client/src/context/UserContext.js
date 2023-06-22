@@ -36,7 +36,7 @@ export const UserProvider = (props) => {
 
     // Sign-out function:
     const signOut = () => {
-        //setAuthUser(null);
+        setAuthUser(null);
     }
 
     // JSX of the component as Provider
@@ -44,7 +44,8 @@ export const UserProvider = (props) => {
         <UserContext.Provider value={{
             authUser,
             actions: {
-                signIn
+                signIn,
+                signOut
             }
         }}>
             {props.children}
