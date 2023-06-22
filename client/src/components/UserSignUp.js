@@ -2,11 +2,12 @@ import React from "react";
 import { useContext, useRef, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../context/UserContext";
 
 const UserSignUp = () => {
     //Navigation state
     let navigate = useNavigate();
-
+    const {actions} = useContext(UserContext);
     //State
     const firstname = useRef(null);
     const lastname = useRef(null);
@@ -42,6 +43,8 @@ const UserSignUp = () => {
             //console.log(response);
             if (response.status === 201) {
                 console.log(`${user.firstName} is successfully signed up and authenticated!`);
+                await actions.signIn(user);
+                navigate("/");
             } else if (response.status === 400) {
                 const data = await response.json();
                 //console.log(data);
