@@ -3,9 +3,12 @@ import { useContext, useRef, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const UserSignIn = () => {
-    let navigate = useNavigate();
+//Context
+import UserContext from "../context/UserContext";
 
+const UserSignIn = () => {
+    const navigate = useNavigate();
+    const { actions } = useContext(UserContext);
     // State
     const email = useRef(null);
     const password = useRef(null);
@@ -19,27 +22,16 @@ const UserSignIn = () => {
             password: password.current.value
         }
 
-        const encodedCredentials = btoa(`${credentials.emailAddress}:${credentials.password}`);
-
-        const fetchOptions = {
-            method: "GET",
-            headers: {
-                Authorization: `Basic ${encodedCredentials}`
-            }
-        };
-
         try {
-            const response = await fetch("http://localhost:5000/api/users", fetchOptions);
-            //console.log(response);
-            if (response.status === 200) {
-                const user = await response.json();
-                console.log(`SUCCESS! ${user.firstName} is successfully signedin.`);
+            const user = await actions.signIn(credentials);
+            if (user) {
                 navigate("/");
-            } else if (response.status === 401) {
-                setErrors(["Sign-in was unsuccessful"]);
             } else {
-                throw new Error();
+                setErrors(["Sign-in was unsuccessful."]);
             }
+            //TODO: Get User from user context
+             // Success (user !== null) => navigate to authenticated route
+             // Failure (user === null) => update error state
         } catch (error) {
             console.log(error);
             navigate("/error");
