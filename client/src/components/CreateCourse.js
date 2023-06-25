@@ -11,7 +11,7 @@ const CreateCourse = () => {
 
     const handleCancel = (e) => {
         e.preventDefault();
-        navigate(-1);
+        navigate("/");
     };
 
     return (
