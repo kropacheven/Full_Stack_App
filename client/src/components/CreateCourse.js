@@ -28,15 +28,14 @@ const CreateCourse = () => {
             userId: authUser.id
         }
 
-        const encodedCredentials = btoa(`${authUser.emailAddress}:${123}`);
-        console.log(authUser.emailAddress);
+        const encodedCredentials = btoa(`${authUser.emailAddress}:${'123'}`);
+        console.log(encodedCredentials);
+
         // Configure fetch options:
         const fetchOptions = {
             method: "POST",
             headers: {
-                Authorization: `Basic ${encodedCredentials}`
-            },
-            headers: {
+                Authorization: `Basic ${encodedCredentials}`,
                 "Content-Type": "application/json; charset=utf-8"
             },
             body: JSON.stringify(newCourse)
@@ -49,7 +48,7 @@ const CreateCourse = () => {
             if (response.status === 201) {
                 console.log(`${newCourse.title} is successfully created and posted!`);
                 navigate("/");
-            } else if (response.status === 401) {
+            } else if (response.status === 400) {
                 const data = await response.json();
                 //console.log(data);
                 setErrors(data.errors);
@@ -62,7 +61,7 @@ const CreateCourse = () => {
         }
 
 
-        //navigate(-1);
+        navigate("/");
     };
 
     const handleCancel = (e) => {
