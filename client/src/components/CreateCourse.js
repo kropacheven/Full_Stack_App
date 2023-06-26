@@ -8,7 +8,8 @@ import UserContext from "../context/UserContext";
 
 const CreateCourse = () => {
     let navigate = useNavigate();
-    const { authUser } = useContext(UserContext);
+    const { authUser, cred } = useContext(UserContext);
+    console.log(cred);
     const title = useRef(null);
     //const userId = useRef(userId);
     const description = useRef(null);
@@ -28,7 +29,7 @@ const CreateCourse = () => {
             userId: authUser.id
         }
 
-        const encodedCredentials = btoa(`${authUser.emailAddress}:${authUser.password}`);
+        const encodedCredentials = btoa(`${authUser.emailAddress}:${cred}`);
         console.log(encodedCredentials);
 
         // Configure fetch options:

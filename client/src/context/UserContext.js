@@ -8,11 +8,16 @@ const UserContext = createContext(null);
 export const UserProvider = (props) => {
     const cookie = Cookies.get("authenticatedUser"); // cookie
     const [authUser, setAuthUser] = useState(cookie ? JSON.parse(cookie) : null); // cookie
-    console.log(authUser);
+    const [cred, setCred] = useState(null); // password as second state from credentials
+
     // Sign-in function 
     const signIn = async (credentials) => {
 
         const encodedCredentials = btoa(`${credentials.emailAddress}:${credentials.password}`);
+
+        const credo = credentials.password;
+        setCred(credo);
+        //console.log(credo);
 
         const fetchOptions = {
             method: "GET",
@@ -46,6 +51,7 @@ export const UserProvider = (props) => {
     return (
         <UserContext.Provider value={{
             authUser,
+            cred,
             actions: {
                 signIn,
                 signOut
