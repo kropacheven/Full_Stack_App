@@ -28,7 +28,7 @@ const CreateCourse = () => {
             userId: authUser.id
         }
 
-        const encodedCredentials = btoa(`${authUser.emailAddress}:${'123'}`);
+        const encodedCredentials = btoa(`${authUser.emailAddress}:${authUser.password}`);
         console.log(encodedCredentials);
 
         // Configure fetch options:
@@ -73,7 +73,7 @@ const CreateCourse = () => {
         <main>
             <div className="wrap">
                 <h2>Create Course</h2>
-                {/* {errors.length ? (
+                {errors.length ? (
                     <div>
                         <h2 className="validation--errors--label">Validation errors</h2>
                         <div className="validation-errors">
@@ -82,7 +82,7 @@ const CreateCourse = () => {
                             </ul>
                         </div>
                     </div>
-                ) : null} */}
+                ) : null}
                 {/* <div className="validation--errors">
                 <h3>Validation Errors</h3>
                 <ul>
