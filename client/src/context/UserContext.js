@@ -8,7 +8,7 @@ const UserContext = createContext(null);
 export const UserProvider = (props) => {
     const cookie = Cookies.get("authenticatedUser"); // cookie
     const [authUser, setAuthUser] = useState(cookie ? JSON.parse(cookie) : null); // cookie
-
+    console.log(authUser);
     // Sign-in function 
     const signIn = async (credentials) => {
 
