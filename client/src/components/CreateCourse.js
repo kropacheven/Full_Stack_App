@@ -61,8 +61,6 @@ const CreateCourse = () => {
             navigate("/error");
         }
 
-
-        navigate("/");
     };
 
     const handleCancel = (e) => {
