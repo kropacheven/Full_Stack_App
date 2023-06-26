@@ -1,11 +1,14 @@
 import React from "react";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+//Context
+import { useContext } from "react";
+import UserContext from "../context/UserContext";
 
 
 const CreateCourse = () => {
     let navigate = useNavigate();
-
+    const { authUser } = useContext(UserContext);
     const title = useRef(null);
     //const userId = useRef(userId);
     const description = useRef(null);
@@ -22,12 +25,17 @@ const CreateCourse = () => {
             description: description.current.value,
             estimatedTime: time.current.value,
             materialsNeeded: materials.current.value, 
-            //userId: userId.current.value
+            userId: authUser.id
         }
 
+        const encodedCredentials = btoa(`${authUser.emailAddress}:${123}`);
+        console.log(authUser.emailAddress);
         // Configure fetch options:
         const fetchOptions = {
             method: "POST",
+            headers: {
+                Authorization: `Basic ${encodedCredentials}`
+            },
             headers: {
                 "Content-Type": "application/json; charset=utf-8"
             },
@@ -41,7 +49,7 @@ const CreateCourse = () => {
             if (response.status === 201) {
                 console.log(`${newCourse.title} is successfully created and posted!`);
                 navigate("/");
-            } else if (response.status === 400) {
+            } else if (response.status === 401) {
                 const data = await response.json();
                 //console.log(data);
                 setErrors(data.errors);
@@ -54,7 +62,7 @@ const CreateCourse = () => {
         }
 
 
-        navigate(-1);
+        //navigate(-1);
     };
 
     const handleCancel = (e) => {
@@ -66,7 +74,7 @@ const CreateCourse = () => {
         <main>
             <div className="wrap">
                 <h2>Create Course</h2>
-                {errors.length ? (
+                {/* {errors.length ? (
                     <div>
                         <h2 className="validation--errors--label">Validation errors</h2>
                         <div className="validation-errors">
@@ -75,7 +83,7 @@ const CreateCourse = () => {
                             </ul>
                         </div>
                     </div>
-                ) : null}
+                ) : null} */}
                 {/* <div className="validation--errors">
                 <h3>Validation Errors</h3>
                 <ul>
