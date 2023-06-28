@@ -1,17 +1,47 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
+//Context
+import { useContext } from "react";
+import UserContext from "../context/UserContext";
+
 const UpdateCourseDesc = (props) => {
     let navigate = useNavigate();
+    const { authUser, cred } = useContext(UserContext);
 
-    const title = useRef();
-    const desc = useRef();
-    const time = useRef();
-    const material = useRef();
+    const title = useRef(null);
+    const description = useRef(null);
+    const estimatedTime = useRef(null);
+    const materialsNeeded = useRef(null);
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        navigate(-1);
+
+        const course = {
+            title,
+            description,
+            estimatedTime,
+            materialsNeeded
+        };
+
+        const encodedCredentials = btoa(`${authUser.emailAddress}:${cred}`);
+
+        // Configure fetch options:
+        const fetchOptions = {
+            method: "PUT",
+            headers: {
+                Authorization: `Basic ${encodedCredentials}`,
+                "Content-Type": "application/json; charset=utf-8",
+            },
+            body: JSON.stringify(course)
+        }
+
+        const response = await fetch("http://localhost:5000/api/courses", fetchOptions);
+        console.log(fetchOptions);
+        //console.log(response);
+
+        //navigate(-1);
     };
 
     const handleCancel = (e) => {
@@ -20,49 +50,50 @@ const UpdateCourseDesc = (props) => {
     };
 
     return (
-        <div class="wrap">
+        <div className="wrap">
             <h2>Update Course</h2>
             <form onSubmit={handleSubmit}>
-                <div class="main--flex">
+                <div className="main--flex">
                     <div>
-                        <label for="courseTitle">Course Title</label>
+                        <label htmlFor="courseTitle">Course Title</label>
                         <input
                             id="courseTitle"
                             name="courseTitle"
                             type="text"
-                            value={props.title}
-                            ref={title} >
+                            defaultValue={props.title}
+                            ref={title}
+                        >
                         </input>
 
                         <p>By {props.firstName} {props.lastName}</p>
 
-                        <label for="courseDescription">Course Description</label>
+                        <label htmlFor="courseDescription">Course Description</label>
                         <textarea
                             id="courseDescription"
                             name="courseDescription"
-                            ref={desc}>
-                            {props.desc}
+                            ref={description} 
+                            defaultValue={props.desc}>
                         </textarea>
                     </div>
                     <div>
-                        <label for="estimatedTime">Estimated Time</label>
+                        <label htmlFor="estimatedTime">Estimated Time</label>
                         <input
                             id="estimatedTime"
                             name="estimatedTime"
                             type="text"
-                            value={props.time}
-                            ref={time}>
+                            ref={estimatedTime}
+                            dafaultValue={props.time} >
                         </input>
-                        <label for="materialsNeeded">Materials Needed</label>
+                        <label htmlFor="materialsNeeded">Materials Needed</label>
                         <textarea
                             id="materialsNeeded"
                             name="materialsNeeded"
-                            ref={material}>
-                            {props.material}
+                            ref={materialsNeeded}
+                            defaultValue={props.material} >
                         </textarea>
                     </div>
                 </div>
-                <button class="button" type="submit" onClick={handleSubmit}>Update Course</button><button class="button button-secondary" onClick={handleCancel}>Cancel</button>
+                <button className="button" type="submit" onClick={handleSubmit}>Update Course</button><button className="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     );
