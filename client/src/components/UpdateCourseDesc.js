@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 //Context
 import { useContext } from "react";
 import UserContext from "../context/UserContext";
@@ -8,7 +8,7 @@ import UserContext from "../context/UserContext";
 const UpdateCourseDesc = (props) => {
     let navigate = useNavigate();
     const { authUser, cred } = useContext(UserContext);
-
+    let { id } = useParams();
     const title = useRef(null);
     const description = useRef(null);
     const estimatedTime = useRef(null);
@@ -19,10 +19,10 @@ const UpdateCourseDesc = (props) => {
         e.preventDefault();
 
         const course = {
-            title,
-            description,
-            estimatedTime,
-            materialsNeeded
+            title: title.current.value,
+            description: description.current.value,
+            estimatedTime: estimatedTime.current.value,
+            materialsNeeded: materialsNeeded.current.value
         };
 
         const encodedCredentials = btoa(`${authUser.emailAddress}:${cred}`);
@@ -37,9 +37,12 @@ const UpdateCourseDesc = (props) => {
             body: JSON.stringify(course)
         }
 
-        const response = await fetch("http://localhost:5000/api/courses", fetchOptions);
+
+        let url = `http://localhost:5000/api/courses/${id}`;
+
+        const response = await fetch(url, fetchOptions);
         console.log(fetchOptions);
-        //console.log(response);
+        console.log(response);
 
         //navigate(-1);
     };
