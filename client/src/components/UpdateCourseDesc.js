@@ -44,7 +44,7 @@ const UpdateCourseDesc = (props) => {
         console.log(fetchOptions);
         console.log(response);
 
-        //navigate(-1);
+        navigate("/");
     };
 
     const handleCancel = (e) => {
