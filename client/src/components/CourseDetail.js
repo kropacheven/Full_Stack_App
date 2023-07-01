@@ -13,16 +13,16 @@ const CourseDetail = (props) => {
     //console.log(authUser);
     let results = props.data;
     console.log(results);
-    let courses = results.filter(course => course.id == id).map(course => <CourseDesc title={course.title} desc={course.description} time={course.estimatedTime} material={course.materialsNeeded}  firstName={course.owner.firstName} lastName={course.owner.lastName} key={course.id}/>);
+    let courses = results.filter(course => course.id == id).map(course => <CourseDesc title={course.title} desc={course.description} time={course.estimatedTime} material={course.materialsNeeded} firstName={course.owner.firstName} lastName={course.owner.lastName} key={course.id} />);
     let theCourse = results.filter(course => course.id == id).map(course => course.userId);
     let navigate = useNavigate();
 
     //Delete event handler function:
     const handleDelete = async (e) => {
         e.preventDefault();
-        
+
         const encodedCredentials = btoa(`${authUser.emailAddress}:${cred}`);
-        
+
         // Configure fetch options:
         const fetchOptions = {
             method: "DELETE",
@@ -30,33 +30,36 @@ const CourseDetail = (props) => {
                 Authorization: `Basic ${encodedCredentials}`
             }
         }
-        
+
         let url = `http://localhost:5000/api/courses/${id}`;
 
         const response = await fetch(url, fetchOptions);
         console.log(fetchOptions);
         console.log(response);
-        
+
         navigate("/");
     };
 
     return (
         <main>
             <div className="actions--bar">
-                {  console.log(theCourse[0]) }
+                {console.log(theCourse[0])}
                 {authUser && authUser.id === theCourse[0]
-                 ?
-                <>
-                 <div className="wrap">
-                    <NavLink className="button" to="update">Update Course</NavLink>
-                    <NavLink className="button" onClick={handleDelete} >Delete Course</NavLink>
-                    <NavLink className="button button-secondary" to="/">Return to List</NavLink>
-                </div>
-                </>
-                 : 
-                 <>
-                 </>
-                 }
+                    ?
+                    <>
+                        <div className="wrap">
+                            <NavLink className="button" to="update">Update Course</NavLink>
+                            <NavLink className="button" onClick={handleDelete} >Delete Course</NavLink>
+                            <NavLink className="button button-secondary" to="/">Return to List</NavLink>
+                        </div>
+                    </>
+                    :
+                    <>
+                        <div className="wrap">
+                            <NavLink className="button button-secondary" to="/">Return to List</NavLink>
+                        </div>
+                    </>
+                }
             </div>
             {courses}
         </main>
