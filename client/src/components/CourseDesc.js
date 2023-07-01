@@ -12,7 +12,7 @@ const CourseDesc = (props) => {
                     <h3 className="course--detail--title">Course</h3>
                     <h4 className="course--name">{props.title}</h4>
                     <p>By {props.firstName} {props.lastName}</p>
-                    <p> <ReactMarkdown>{props.desc}</ReactMarkdown>{props.desc} </p>
+                    <p> <ReactMarkdown>{props.desc}</ReactMarkdown> </p>
                 </div>
                 <div>
                     <h3 className="course--detail--title">Estimated Time</h3>
