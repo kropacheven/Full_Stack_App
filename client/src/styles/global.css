@@ -204,10 +204,14 @@ input:focus, button:focus, .button:focus, textarea:focus {
     outline: 2px solid #332a40;
 }
 
-
+/* Project new custom styles */
 .validation--errors--label {
     color: rgb(165, 26, 26);
 }
+
+ul {
+    list-style-type: none;
+   }
 
 @media screen and (min-width: 600px) {
     .header--signedin li {
