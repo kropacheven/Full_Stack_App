@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from 'react-markdown'
 
 const CourseDesc = (props) => {
 
@@ -11,10 +12,7 @@ const CourseDesc = (props) => {
                     <h3 className="course--detail--title">Course</h3>
                     <h4 className="course--name">{props.title}</h4>
                     <p>By {props.firstName} {props.lastName}</p>
-
-                    <p> {props.desc} </p>
-
-
+                    <p> <ReactMarkdown>{props.desc}</ReactMarkdown>{props.desc} </p>
                 </div>
                 <div>
                     <h3 className="course--detail--title">Estimated Time</h3>
@@ -22,7 +20,7 @@ const CourseDesc = (props) => {
 
                     <h3 className="course--detail--title">Materials Needed</h3>
                     <ul className="course--detail--list">
-                        <li>{props.material}</li>
+                        <li><ReactMarkdown>{props.material}</ReactMarkdown></li>
                     </ul>
                 </div>
             </div>
