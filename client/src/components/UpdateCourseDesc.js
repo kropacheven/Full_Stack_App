@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 //Context
@@ -13,6 +13,7 @@ const UpdateCourseDesc = (props) => {
     const description = useRef(null);
     const estimatedTime = useRef(null);
     const materialsNeeded = useRef(null);
+    const [errors, setErrors] = useState([]);
 
 
     const handleSubmit = async (e) => {
@@ -37,14 +38,28 @@ const UpdateCourseDesc = (props) => {
             body: JSON.stringify(course)
         }
 
+        try {
+            let url = `http://localhost:5000/api/courses/${id}`;
 
-        let url = `http://localhost:5000/api/courses/${id}`;
+            const response = await fetch(url, fetchOptions);
+            //console.log(fetchOptions);
+            console.log(response);
+            if (response.status === 204) {
+                console.log(`${title} is successfully updated and posted!`);
+                navigate("/");
+            } else if (response.status === 400) {
+                const data = await response.json();
+                //console.log(data);
+                setErrors(data.errors);
+            } else {
+                throw new Error();
+            }
+        } catch (error) {
+            console.log(error);
+            navigate("/error");
+        }
 
-        const response = await fetch(url, fetchOptions);
-        console.log(fetchOptions);
-        console.log(response);
-
-        navigate("/");
+        //navigate("/");
     };
 
     const handleCancel = (e) => {
@@ -55,6 +70,16 @@ const UpdateCourseDesc = (props) => {
     return (
         <div className="wrap">
             <h2>Update Course</h2>
+            {errors.length ? (
+                    <div>
+                        <h2 className="validation--errors--label">Validation errors</h2>
+                        <div className="validation-errors">
+                            <ul>
+                                {errors.map((error, i) => <li key={i}>{error}</li>)}
+                            </ul>
+                        </div>
+                    </div>
+                ) : null}
             <form onSubmit={handleSubmit}>
                 <div className="main--flex">
                     <div>
