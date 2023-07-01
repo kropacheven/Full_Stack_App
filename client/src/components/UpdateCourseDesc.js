@@ -38,14 +38,13 @@ const UpdateCourseDesc = (props) => {
             body: JSON.stringify(course)
         }
 
-        try {
-            let url = `http://localhost:5000/api/courses/${id}`;
+        let url = `http://localhost:5000/api/courses/${id}`;
 
+        try {
             const response = await fetch(url, fetchOptions);
-            //console.log(fetchOptions);
-            console.log(response);
+            //console.log(response);
             if (response.status === 204) {
-                console.log(`${title} is successfully updated and posted!`);
+                console.log(`${course.title} is successfully updated and posted!`);
                 navigate("/");
             } else if (response.status === 400) {
                 const data = await response.json();
@@ -59,7 +58,6 @@ const UpdateCourseDesc = (props) => {
             navigate("/error");
         }
 
-        //navigate("/");
     };
 
     const handleCancel = (e) => {
