@@ -15,6 +15,10 @@ const UpdateCourseDesc = (props) => {
     const materialsNeeded = useRef(null);
     const [errors, setErrors] = useState([]);
 
+    if (id !== authUser.id) {
+        navigate("/forbidden");
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
