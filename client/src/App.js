@@ -15,7 +15,7 @@ import UserSignIn from './components/UserSignIn';
 import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
 import NotFound from './components/NotFound';
-import Error from './components/Error';
+import UnhandledError from './components/UnhandledError';
 import Forbidden from './components/Forbidden';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -48,7 +48,7 @@ function App() {
           <Route path="courses/create" element={<CreateCourse />} />
           <Route path="courses/:id/update" element={<UpdateCourse data={courses} />} />
         </Route>
-        <Route path="error" element={<Error />} />
+        <Route path="error" element={<UnhandledError />} />
         <Route path="forbidden" element={<Forbidden />} />
         <Route path="*" element={<NotFound />} />
 
