@@ -51,7 +51,6 @@ function App() {
         <Route path="error" element={<UnhandledError />} />
         <Route path="forbidden" element={<Forbidden />} />
         <Route path="*" element={<NotFound />} />
-
       </Routes>
     </div>
   );
