@@ -66,7 +66,7 @@ const UpdateCourseDesc = (props) => {
 
     const handleCancel = (e) => {
         e.preventDefault();
-        navigate("/");
+        navigate(-1);
     };
 
     return (
