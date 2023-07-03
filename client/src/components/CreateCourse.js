@@ -82,22 +82,13 @@ const CreateCourse = () => {
                         </div>
                     </div>
                 ) : null}
-                {/* <div className="validation--errors">
-                <h3>Validation Errors</h3>
-                <ul>
-                    <li>Please provide a value htmlFor "Title"</li>
-                    <li>Please provide a value htmlFor "Description"</li>
-                </ul>
-            </div> */}
                 <form onSubmit={handleSubmit}>
                     <div className="main--flex">
                         <div>
                             <label htmlFor="courseTitle">Course Title</label>
                             <input id="courseTitle" name="courseTitle" type="text" ref={title}></input>
 
-                            <p>By Joe Smith</p>
-                            {/* <label htmlFor="courseAuthor">Course Author</label>
-                            <input id="courseAuthor" name="courseAuthor" type="text" ref={userId}></input> */}
+                            <p> By <strong>{authUser.firstName} {authUser.lastName}</strong></p>
 
                             <label htmlFor="courseDescription">Course Description</label>
                             <textarea id="courseDescription" name="courseDescription" ref={description}></textarea>
