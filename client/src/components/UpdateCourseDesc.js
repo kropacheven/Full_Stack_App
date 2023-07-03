@@ -90,7 +90,7 @@ const UpdateCourseDesc = (props) => {
                             id="courseTitle"
                             name="courseTitle"
                             type="text"
-                            defaultValue={props.title}
+                            defaultvalue={props.title}
                             ref={title}
                         >
                         </input>
@@ -102,7 +102,7 @@ const UpdateCourseDesc = (props) => {
                             id="courseDescription"
                             name="courseDescription"
                             ref={description} 
-                            defaultValue={props.desc}>
+                            defaultvalue={props.desc}>
                         </textarea>
                     </div>
                     <div>
@@ -112,7 +112,7 @@ const UpdateCourseDesc = (props) => {
                             name="estimatedTime"
                             type="text"
                             ref={estimatedTime}
-                            dafaultValue={props.time} >
+                            dafaultvalue={props.time} >
                         </input>
                         <label htmlFor="materialsNeeded">Materials Needed</label>
                         <textarea
