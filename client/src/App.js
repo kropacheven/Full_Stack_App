@@ -1,7 +1,7 @@
 // App tools:
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from "react-router-dom";
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -21,6 +21,7 @@ import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
+  let navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   //console.log(courses);
   useEffect(() => {
@@ -33,7 +34,7 @@ function App() {
         // handle error
         console.log("Error fetching and parsing data", error);
       })
-  }, []);
+  }, [navigate]);
 
   return (
     <div id="root">
