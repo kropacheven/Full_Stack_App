@@ -2,7 +2,7 @@ import React from "react";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 //Context
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import UserContext from "../context/UserContext";
 
 
