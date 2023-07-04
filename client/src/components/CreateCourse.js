@@ -2,7 +2,7 @@ import React from "react";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 //Context
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "../context/UserContext";
 
 
@@ -16,6 +16,7 @@ const CreateCourse = () => {
     const time = useRef(null);
     const materials = useRef(null);
     const [errors, setErrors] = useState([]);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,10 +43,12 @@ const CreateCourse = () => {
             body: JSON.stringify(newCourse)
         }
 
+
         try {
             const response = await fetch("http://localhost:5000/api/courses", fetchOptions);
             //console.log(fetchOptions);
             //console.log(response);
+
             if (response.status === 201) {
                 console.log(`${newCourse.title} is successfully created and posted!`);
                 navigate("/");
@@ -67,6 +70,7 @@ const CreateCourse = () => {
         e.preventDefault();
         navigate("/");
     };
+
 
     return (
         <main>

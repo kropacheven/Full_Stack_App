@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import axios from 'axios';
 //Context
 import { useContext } from "react";
 import UserContext from "../context/UserContext";
@@ -15,10 +16,9 @@ const UpdateCourseDesc = (props) => {
     const materialsNeeded = useRef(null);
     const [errors, setErrors] = useState([]);
 
-    if (id !== authUser.id) {
-        navigate("/forbidden");
-    }
-
+    // if (id !== authUser.id) {
+    //     navigate("/forbidden");
+    // }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -69,19 +69,20 @@ const UpdateCourseDesc = (props) => {
         navigate(-1);
     };
 
+
     return (
         <div className="wrap">
             <h2>Update Course</h2>
             {errors.length ? (
-                    <div>
-                        <h2 className="validation--errors--label">Validation errors</h2>
-                        <div className="validation-errors">
-                            <ul>
-                                {errors.map((error, i) => <li key={i}>{error}</li>)}
-                            </ul>
-                        </div>
+                <div>
+                    <h2 className="validation--errors--label">Validation errors</h2>
+                    <div className="validation-errors">
+                        <ul>
+                            {errors.map((error, i) => <li key={i}>{error}</li>)}
+                        </ul>
                     </div>
-                ) : null}
+                </div>
+            ) : null}
             <form onSubmit={handleSubmit}>
                 <div className="main--flex">
                     <div>
@@ -101,7 +102,7 @@ const UpdateCourseDesc = (props) => {
                         <textarea
                             id="courseDescription"
                             name="courseDescription"
-                            ref={description} 
+                            ref={description}
                             defaultValue={props.desc}>
                         </textarea>
                     </div>
