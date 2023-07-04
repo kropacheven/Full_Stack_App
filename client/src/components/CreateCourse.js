@@ -17,7 +17,7 @@ const CreateCourse = () => {
     const materials = useRef(null);
     const [errors, setErrors] = useState([]);
 
-
+    //Submit event handler function for course creation:
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -30,6 +30,7 @@ const CreateCourse = () => {
             userId: authUser.id
         }
 
+        //Encoded credentials for granting access only to authorized users:
         const encodedCredentials = btoa(`${authUser.emailAddress}:${cred}`);
         console.log(encodedCredentials);
 

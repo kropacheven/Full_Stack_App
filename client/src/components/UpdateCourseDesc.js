@@ -19,6 +19,7 @@ const UpdateCourseDesc = (props) => {
     //     navigate("/forbidden");
     // }
 
+    //Submit event handlerer for course update:
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -29,6 +30,8 @@ const UpdateCourseDesc = (props) => {
             materialsNeeded: materialsNeeded.current.value
         };
 
+
+        //Encoded credentials for granting access only to authorized users:
         const encodedCredentials = btoa(`${authUser.emailAddress}:${cred}`);
 
         // Configure fetch options:
@@ -63,6 +66,7 @@ const UpdateCourseDesc = (props) => {
 
     };
 
+    // Event handlerer for Cancel button (redirects to preious course detail view ):
     const handleCancel = (e) => {
         e.preventDefault();
         navigate(-1);

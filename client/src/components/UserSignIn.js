@@ -16,12 +16,14 @@ const UserSignIn = () => {
     const password = useRef(null);
     const [errors, setErrors] = useState([]);
 
+    //Submit event handler function:
     const handleSubmit = async (e) => {
         e.preventDefault();
         let from = '/';
         if (location.state) {
             from=location.state.from;
         }
+        //User credentials for auth:
         const credentials = {
             emailAddress: email.current.value,
             password: password.current.value
@@ -43,6 +45,7 @@ const UserSignIn = () => {
         }
     };
 
+    // Cancel button event handlerer:
     const handleCancel = (e) => {
         e.preventDefault();
         navigate("/");
