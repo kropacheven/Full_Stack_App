@@ -12,7 +12,7 @@ const CourseDetail = (props) => {
     const { authUser, cred } = useContext(UserContext);
     //console.log(authUser);
     let results = props.data;
-    console.log(results);
+    //console.log(results);
     let courses = results.filter(course => course.id == id).map(course => <CourseDesc title={course.title} desc={course.description} time={course.estimatedTime} material={course.materialsNeeded} firstName={course.owner.firstName} lastName={course.owner.lastName} key={course.id} />);
     let theCourse = results.filter(course => course.id == id).map(course => course.userId);
     let navigate = useNavigate();
@@ -43,7 +43,7 @@ const CourseDetail = (props) => {
     return (
         <main>
             <div className="actions--bar">
-                {console.log(theCourse[0])}
+                {/* {console.log(theCourse[0])} */}
                 {authUser && authUser.id === theCourse[0]
                     ?
                     <>
