@@ -13,8 +13,8 @@ const CourseDetail = (props) => {
     //console.log(authUser);
     let results = props.data;
     //console.log(results);
-    let courses = results.filter(course => course.id == id).map(course => <CourseDesc title={course.title} desc={course.description} time={course.estimatedTime} material={course.materialsNeeded} firstName={course.owner.firstName} lastName={course.owner.lastName} key={course.id} />);
-    let theCourse = results.filter(course => course.id == id).map(course => course.userId);
+    let courses = results.filter(course => course.id === id).map(course => <CourseDesc title={course.title} desc={course.description} time={course.estimatedTime} material={course.materialsNeeded} firstName={course.owner.firstName} lastName={course.owner.lastName} key={course.id} />);
+    let theCourse = results.filter(course => course.id === id).map(course => course.userId);
     let navigate = useNavigate();
 
     //Delete event handler function:
