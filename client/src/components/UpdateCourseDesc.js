@@ -116,7 +116,7 @@ const UpdateCourseDesc = (props) => {
                             name="estimatedTime"
                             type="text"
                             ref={estimatedTime}
-                            dafaultValue={props.time} >
+                            dafaultvalue={props.time} >
                         </input>
                         <label htmlFor="materialsNeeded">Materials Needed</label>
                         <textarea
