@@ -9,7 +9,7 @@ import UserContext from "../context/UserContext";
 const CreateCourse = () => {
     let navigate = useNavigate();
     const { authUser, cred } = useContext(UserContext);
-    console.log(cred);
+    //console.log(cred);
     const title = useRef(null);
     //const userId = useRef(userId);
     const description = useRef(null);
